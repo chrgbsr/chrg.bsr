@@ -4,7 +4,27 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
+// Scroll Animation System
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            // Reset animation when element leaves view
+            entry.target.classList.remove('active'); 
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -10px 0px'
+});
 
+// Apply to all animated elements
+document.querySelectorAll('[data-scroll]').forEach((el, index) => {
+    // Add staggered delay based on element index
+    el.style.transitionDelay = `${index * 0.15}s`;
+    scrollObserver.observe(el);
+});
 // 3D Object
 const geometry = new THREE.TorusKnotGeometry(3, 1, 256, 32);
 const material = new THREE.MeshBasicMaterial({ 
@@ -36,7 +56,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.service-card, .project-card').forEach(el => {
+document.querySelectorAll('.service-card, .project-card, .testimonial-card').forEach(el => {
     observer.observe(el);
 });
 
