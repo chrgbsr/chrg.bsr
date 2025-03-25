@@ -437,7 +437,8 @@ html {
     padding: 8rem 2rem;
     text-align: center;
     overflow: hidden;
-    position: relative;
+    position: relative;\
+	 color: var(--red);
 	 
 }
 
