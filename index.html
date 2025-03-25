@@ -24,13 +24,16 @@
 
     <main>
         <section class="hero">
-            <h1 class="hero-title">Digital<br>Innovation</h1>
+            <h1 class="hero-title">
+        <span class="slide-right">Digital</span><br>
+        <span class="slide-left">Innovation</span>
+    </h1>
         </section>
 
-        <section class="services" id="services">
+        <section class="services" id="services" data-scroll data-animation="fade-left">
             <div class="services-grid">
                 <!-- SEO Services -->
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-typography">
                         <div class="service-number">SEO</div>
                         <h2 class="service-title">Solutions</h2>
@@ -45,7 +48,7 @@
                 </div>
 
                 <!-- Promotional Services -->
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-typography">
                         <div class="service-number">Digital</div>
                         <h2 class="service-title">Advertising</h2>
@@ -60,7 +63,7 @@
                 </div>
 
                 <!-- Graphics Design -->
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-typography">
                         <div class="service-number">Visual</div>
                         <h2 class="service-title">Design</h2>
@@ -75,7 +78,7 @@
                 </div>
 
                 <!-- Legal Registrations -->
-                <div class="service-card">
+                <div class="service-card"data-scroll>
                     <div class="service-typography">
                         <div class="service-number">Legal</div>
                         <h2 class="service-title">Compliance</h2>
@@ -91,8 +94,8 @@
             </div>
         </section>
 
-        <section class="projects" id="work">
-            <div class="project-card">
+        <section class="projects" id="work" data-scroll data-animation="fade-left">
+            <div class="project-card" data-scroll>
                 <div class="project-typography">
                     <h3 class="project-number">Case Study 001</h3>
                     <p class="project-description">E-commerce Platform Architecture</p>
@@ -102,12 +105,50 @@
                 </div>
             </div>
         </section>
+		<section class="testimonials" id="testimonials" data-scroll data-animation="scale-up">
+    <h2 class="testimonials-title" data-scroll>Testimonials</h2>
+    <div class="testimonials-grid">
+        <!-- Card 1 -->
+        <div class="testimonial-card" data-scroll>
+            <div class="testimonial-content">
+                <div class="testimonial-quote">“CHRG_BSR's SEO expertise skyrocketed our organic traffic. Their data-driven approach delivered measurable results.”</div>
+                <div class="testimonial-client">
+                    <div class="client-name">Rajesh Verma</div>
+                    <div class="client-role">CTO, FinTech Solutions</div>
+                </div>
+            </div>
+        </div>
 
-        <section class="contact" id="contact">
-            <h2 class="contact-title">Let's Connect</h2>
-            <div class="contact-email">contact@chrgbsr.com</div>
-        </section>
+        <!-- Card 2 -->
+        <div class="testimonial-card" data-scroll>
+            <div class="testimonial-content">
+                <div class="testimonial-quote">“The brand identity they crafted became our ultimate competitive advantage. Pure visual genius!”</div>
+                <div class="testimonial-client">
+                    <div class="client-name">Ananya Singh</div>
+                    <div class="client-role">Founder, UrbanFashion</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="testimonial-card" data-scroll>
+            <div class="testimonial-content">
+                <div class="testimonial-quote">“Their legal compliance services saved us countless hours. Truly end-to-end digital partners.”</div>
+                <div class="testimonial-client">
+                    <div class="client-name">Vikram Mehta</div>
+                    <div class="client-role">Director, AutoWorks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="contact-title">Let's Connect</h2>
+    <div class="contact-email">contact@chrgbsr.com</div>
+</section>
     </main>
+	
 
     <script src="script.js"></script>
 </body>
