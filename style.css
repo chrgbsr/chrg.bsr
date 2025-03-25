@@ -213,9 +213,57 @@ html {
     font-weight: 900;
     text-transform: uppercase;
 }
+/* Service Menu Items */
+.service-menu li {
+    padding-left: 3.5rem !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
 
+.service-menu li:before {
+    left: 1rem !important;
+    color: var(--red);
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.service-menu li:hover {
+    background: rgba(255, 42, 42, 0.05);
+    transform: translateX(10px);
+}
+
+/* Expanded Content */
+.expanded-content {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 2rem;
+    border-left: 2px solid var(--red);
+    margin: 0.5rem 0;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.expanded-content.active {
+    max-height: 500px;
+    opacity: 1;
+    margin: 1.2rem 0;
+    padding: 1.5rem 2.5rem;
+}
+
+.expanded-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+}
+
+.expanded-content p:before {
+    content: "▹";
+    color: var(--red);
+    margin-right: 0.8rem;
+}
 .services-grid {
-    padding: 8rem 2rem;
+    padding: 8rem 5rem;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -237,7 +285,8 @@ html {
 }
 
 .service-typography {
-    padding-right: 2rem;
+    padding-right: 3rem;
+	margin-left : 4rem;
     border-right: 2px solid var(--red);
 }
 
@@ -257,9 +306,9 @@ html {
 
 .service-menu {
     list-style: none;
-    padding: 0;
+    padding: 5rem;
     display: grid;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .service-menu li {
