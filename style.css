@@ -15,7 +15,10 @@
     opacity: 1;
     transform: translateY(0);
 }
-/* Add to style.css */
+.hero-red {
+    color: var(--red);
+    text-shadow: 0 0 10px rgba(255,42,42,0.3);
+}
 .hero-title span {
     display: inline-block;
     opacity: 0;
