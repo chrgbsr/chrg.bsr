@@ -83,3 +83,21 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+// Expandable Service Items
+document.querySelectorAll('.expandable-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const content = this.querySelector('.expanded-content');
+        const isActive = content.classList.contains('active');
+        
+        // Close all first if needed
+        document.querySelectorAll('.expanded-content').forEach(el => {
+            el.classList.remove('active');
+        });
+        
+        // Toggle current if not active
+        if(!isActive) {
+            content.classList.add('active');
+            this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+});
