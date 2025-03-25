@@ -473,7 +473,7 @@ html {
 /* Mobile adjustment */
 @media (max-width: 768px) {
     .contact-email {
-        font-size: 4 rem;
+        font-size: 2 rem;
         position: static;
         opacity: 1;
         transform: none;
