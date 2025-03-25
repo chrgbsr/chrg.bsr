@@ -24,6 +24,7 @@
 
 .slide-right {
     transform: translateX(100%);
+	 color: var(--red);
 }
 
 .slide-left {
