@@ -4,6 +4,86 @@
     --red: #ff2a2a;
     --gap: 2rem;
 }
+/* Scroll Animation System */
+[data-scroll] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+[data-scroll].active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Add to style.css */
+.hero-title span {
+    display: inline-block;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.slide-right {
+    transform: translateX(100%);
+}
+
+.slide-left {
+    transform: translateX(-100%);
+}
+
+.hero-title .active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Add this at the bottom of your CSS */
+@keyframes slideRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.hero-title .slide-right {
+    animation: slideRight 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-title .slide-left {
+    animation: slideLeft 1s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* Specific Animation Types */
+[data-animation="fade-left"] {
+    transform: translateX(-100px);
+}
+
+[data-animation="fade-right"] {
+    transform: translateX(100px);
+}
+
+[data-animation="scale-up"] {
+    transform: scale(0.5);
+}
+
+.service-card { transition-delay: 0s; }
+.project-card { transition-delay: 0.02s; }
+.testimonial-card { transition-delay: 0.02s; }
 
 * {
     margin: 0;
@@ -18,7 +98,30 @@ body {
     background: var(--black);
     overflow-x: hidden;
 }
+/* Add this to style.css */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
 
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--red);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff4d4d;
+}
+
+/* Firefox Support */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) var(--black);
+}
 .cursor {
     position: fixed;
     width: 20px;
@@ -211,15 +314,172 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+    padding: 8rem 2rem;
+    position: relative;
+}
 
+.testimonials-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+	color: var(--red)
+}
+
+.testimonials-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.testimonial-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 2rem;
+    border: 0px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05) translateZ(20px);
+    box-shadow: 
+        0 0 30px rgba(255,42,42,0.3),
+        0 0 20px rgba(255,42,42,0.2) inset;
+}
+
+.testimonial-card:hover::before {
+    left: 100%;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.testimonial-quote::before {
+    content: '“';
+    position: absolute;
+    left: -1rem;
+    top: -0.5rem;
+    color: var(--red);
+    font-size: 3rem;
+    font-family: serif;
+}
+
+.testimonial-client {
+    border-top: 0px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+}
+
+.client-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.client-role {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-card {
+        margin: 0 2rem;
+    }
+}
+/* Add/Update these styles in your CSS */
 .contact {
     padding: 8rem 2rem;
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .contact-title {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5 rem;
+    transform: translateY(0);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-email {
+    font-size: 2.4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.contact:hover .contact-title {
+    transform: translateY(-40px);
+    opacity: 0.3;
+}
+
+.contact:hover .contact-email {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .contact-email {
+        font-size: 4 rem;
+        position: static;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .contact:hover .contact-title {
+        transform: none;
+        opacity: 1;
+    }
 }
 
 @media (max-width: 768px) {
