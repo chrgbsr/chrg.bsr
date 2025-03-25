@@ -259,7 +259,7 @@ html {
 
 .expanded-content p:before {
     content: "▹";
-    color: var(--red);
+    color: rgba(255,42,42,0.3);
     margin-right: 0.8rem;
 }
 .services-grid {
@@ -314,7 +314,7 @@ html {
 .service-menu li {
     font-size: 1.2rem;
     padding: 1rem;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,42,42,0.03);
     transition: all 0.3s ease;
     position: relative;
     padding-left: 2rem;
@@ -328,7 +328,7 @@ html {
 }
 
 .service-menu li:hover {
-    background: var(--red);
+    background: rgba(255,42,42,0.3);
     transform: translateX(10px);
 }
 
